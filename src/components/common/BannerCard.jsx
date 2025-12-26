@@ -4,7 +4,7 @@ export function BannerCard({ item }) {
   return (
     <NavLink
       to={item.link}
-      className={`group relative overflow-hidden rounded-lg ${item.bg}`}
+      className={`group relative overflow-hidden rounded-lg  ${item.bg}`}
     >
       {/* IMAGE */}
       <img
@@ -16,6 +16,7 @@ export function BannerCard({ item }) {
           transition-transform duration-700 ease-out
           group-hover:scale-110
         "
+        loading="lazy"
       />
 
       {/* CONTENT */}

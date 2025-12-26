@@ -29,7 +29,7 @@ const Hero = () => {
           </button>
         </div>
         <div>
-            <img src={hero} className="w-full h-[420px] object-cover rounded-2xl"/>
+            <img src={hero} className="w-full h-[420px] object-cover rounded-2xl" loading="lazy"/>
         </div>
       </div>
     </section>
