@@ -3,8 +3,14 @@
 /* =====================
    THEME COLORS
 ===================== */
-
-
+:root {
+  --primary: 55 65 81; /* Dark Slate */
+  --secondary: 217 119 6; /* Orange */
+  --background: 248 245 238; /* Cream */
+  --text: 107 114 128; /* Gray text */
+  --border: 229 231 235;
+  --third: 62 81 106;
+}
 
 /* =====================
    BASE STYLES
@@ -13,41 +19,44 @@
   body {
     font-family: "Jost", sans-serif;
 
-    @apply text-primary;
-
-  }
-  :root{
-    --primary: 55 65 81;
-    --secondary: 217 119 6;
-    --background: 248 245 238;
-    --text: 107 114 128;
-    --border: 229 231 235;
-    --third: 62 81 106;
+    color: rgb(var(--primary));
   }
 }
+
 @layer utilities {
+  .bg-primary {
+    background-color: rgb(var(--primary));
+  }
+
   .cream-bg {
-    @apply bg-background;
+    background-color: rgb(var(--background));
+  }
+ 
+  .text-primary {
+    color: rgb(var(--primary));
   }
 
   .hover-primary:hover {
-    @apply text-primary;
+    color: rgb(var(--primary-hover));
   }
 
-  .nav-link {
-    @apply font-medium text-gray-700 hover:text-primary transition;
+
+  .bg-secondary {
+    background-color: rgb(var(--secondary));
   }
 
-  .dropdown-link {
-    @apply block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-primary;
+  .text-secondary {
+    color: rgb(var(--secondary));
   }
 
-  .icon {
-    @apply text-xl cursor-pointer hover:text-primary transition;
+  .border-theme {
+    border-color: rgb(var(--border));
   }
-
-  .page-header {
-    background-size: cover;
-    background-position: center;
+  .third-color {
+    color: rgb(var(--third));
   }
+  .third-bg{
+  background-color:rgb(var(--third));
+  }
+ 
 }
