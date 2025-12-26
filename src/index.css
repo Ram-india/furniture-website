@@ -3,14 +3,15 @@
 /* =====================
    THEME COLORS
 ===================== */
-:root {
-  --primary: 55 65 81; /* Dark Slate */
-  --secondary: 217 119 6; /* Orange */
-  --background: 248 245 238; /* Cream */
-  --text: 107 114 128; /* Gray text */
-  --border: 229 231 235;
-  --third: 62 81 106;
+@theme {
+  --color-primary: 55 65 81;
+  --color-secondary: 217 119 6;
+  --color-background: 248 245 238;
+  --color-text: 107 114 128;
+  --color-border: 229 231 235;
+  --color-third: 62 81 106;
 }
+
 
 /* =====================
    BASE STYLES
@@ -19,45 +20,29 @@
   body {
     font-family: "Jost", sans-serif;
 
-    color: rgb(var(--primary));
+    @apply text-primary;
+
   }
 }
 
 @layer utilities {
-  .bg-primary {
-    background-color: rgb(var(--primary));
-  }
+  
 
   .cream-bg {
     background-color: rgb(var(--background));
   }
  
-  .text-primary {
-    color: rgb(var(--primary));
-  }
+  
 
   .hover-primary:hover {
     color: rgb(var(--primary-hover));
   }
 
 
-  .bg-secondary {
-    background-color: rgb(var(--secondary));
-  }
+  
 
-  .text-secondary {
-    color: rgb(var(--secondary));
-  }
 
-  .border-theme {
-    border-color: rgb(var(--border));
-  }
-  .third-color {
-    color: rgb(var(--third));
-  }
-  .third-bg{
-  background-color:rgb(var(--third));
-  }
+ 
   .nav-link {
     @apply font-medium text-gray-700 hover:text-primary transition;
   }
