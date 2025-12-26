@@ -24,25 +24,15 @@
 
   }
 }
-
 @layer utilities {
-  
-
   .cream-bg {
-    background-color: rgb(var(--background));
+    @apply bg-background;
   }
- 
-  
 
   .hover-primary:hover {
-    color: rgb(var(--primary-hover));
+    @apply text-primary;
   }
 
-
-  
-
-
- 
   .nav-link {
     @apply font-medium text-gray-700 hover:text-primary transition;
   }
@@ -54,7 +44,9 @@
   .icon {
     @apply text-xl cursor-pointer hover:text-primary transition;
   }
-  .page-header{
-    backgroundImage:'url('
+
+  .page-header {
+    background-size: cover;
+    background-position: center;
   }
 }
