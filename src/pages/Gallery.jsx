@@ -21,7 +21,7 @@ export default function Gallery() {
       <PageHeader
         title="Gallery"
         subtitle="Explore our creative furniture collections"
-        image="/src/assets/banner/page-header.jpg"
+       
       />
 
       {/* FILTER */}

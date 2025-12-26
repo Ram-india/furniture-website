@@ -3,14 +3,7 @@
 /* =====================
    THEME COLORS
 ===================== */
-@theme {
-  --color-primary: 55 65 81;
-  --color-secondary: 217 119 6;
-  --color-background: 248 245 238;
-  --color-text: 107 114 128;
-  --color-border: 229 231 235;
-  --color-third: 62 81 106;
-}
+
 
 
 /* =====================
@@ -22,6 +15,14 @@
 
     @apply text-primary;
 
+  }
+  :root{
+    --primary: 55 65 81;
+    --secondary: 217 119 6;
+    --background: 248 245 238;
+    --text: 107 114 128;
+    --border: 229 231 235;
+    --third: 62 81 106;
   }
 }
 @layer utilities {

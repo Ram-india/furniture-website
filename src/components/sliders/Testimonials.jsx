@@ -4,33 +4,37 @@ import "swiper/css";
 import "swiper/css/pagination";
 import TestimonialCard from "../common/TestimonialCard";
 
+import user1 from "/images/users/user-1.webp";
+import user2 from "/images/users/avatar-2.webp";
+import user3 from "/images/users/avatar-3.webp";
+
 export default function Testimonials() {
   const testimonials = [
     {
       id: 1,
       name: "Teresa Holland",
-      image: "/src/assets/users/user-1.webp",
+      image: user1,
       rating: 5,
       text: "Vestibulum ut maximus magna. Duis neque risus, varius nec efficitur ut.",
     },
     {
       id: 2,
       name: "Daisy Lana",
-      image: "src/assets/users/avatar-2.webp",
+      image: user2,
       rating: 5,
       text: "Vestibulum ut maximus magna. Duis neque risus, varius nec efficitur ut.",
     },
     {
       id: 3,
       name: "Allen Smith",
-      image: "src/assets/users/avatar-3.webp",
+      image: user3,
       rating: 5,
       text: "Vestibulum ut maximus magna. Duis neque risus, varius nec efficitur ut.",
     },
     {
       id: 4,
       name: "John Carter",
-      image: "src/assets/users/avatar-2.webp",
+      image: user2,
       rating: 4,
       text: "Vestibulum ut maximus magna. Duis neque risus, varius nec efficitur ut.",
     },
@@ -39,9 +43,7 @@ export default function Testimonials() {
   return (
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-6 text-center">
-        <h2 className="text-3xl font-bold text-primary">
-          Our Lucky Customers
-        </h2>
+        <h2 className="text-3xl font-bold text-primary">Our Lucky Customers</h2>
         <p className="text-theme mt-2 mb-14">
           Visit our shop to see amazing creations from our designers.
         </p>
@@ -59,7 +61,7 @@ export default function Testimonials() {
           className="pb-12"
         >
           {testimonials.map((item) => (
-            <SwiperSlide key={item.id}  className="overflow-hidden ">
+            <SwiperSlide key={item.id} className="overflow-hidden">
               <TestimonialCard item={item} />
             </SwiperSlide>
           ))}

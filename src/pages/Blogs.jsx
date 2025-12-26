@@ -1,6 +1,6 @@
 import React from 'react'
 
-import PageHeader from '../components/common/PageHeader'
+import PageHeader from '../components/common/PageHeader';
 import { Link } from 'react-router-dom';
 import { blogs } from '../data/blogData';
 
@@ -12,7 +12,6 @@ const Blogs = () => {
      <PageHeader
       title="Blog"
       subtitle="Crafting comfort and style for modern living"
-      image="/src/assets/banner/page-header.jpg"
       />
       <section className="max-w-7xl mx-auto px-6 py-20">
       <h2 className="text-3xl font-bold text-primary mb-10">Our Blog</h2>

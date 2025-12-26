@@ -1,4 +1,5 @@
 import React from "react";
+import hero from"/images/hero/hero.png";
 
 const Hero = () => {
   return (
@@ -28,7 +29,7 @@ const Hero = () => {
           </button>
         </div>
         <div>
-            <img src="/src/assets/hero/image-07.png" alt="Hero Image" />
+            <img src={hero} className="w-full h-[420px] object-cover rounded-2xl"/>
         </div>
       </div>
     </section>

@@ -1,6 +1,8 @@
 import { FiPhone, FiMail, FiMapPin } from "react-icons/fi";
 import PageHeader from "../components/common/PageHeader";
 
+
+
 export default function Contact() {
   return (
     <section className="bg-white">
@@ -10,7 +12,7 @@ export default function Contact() {
       title="Contact Us"
       subtitle=" Have questions? We’d love to hear from you. Send us a message and we’ll
       respond as soon as possible."
-      image="/src/assets/banner/page-header.jpg"
+
       />
       <div className="max-w-7xl mx-auto px-6 py-20 text-center">
         <h1 className="text-4xl font-bold text-primary">Contact Us</h1>

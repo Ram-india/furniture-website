@@ -1,5 +1,6 @@
 import { FiTruck, FiUsers, FiAward, FiHeart,FiTarget, FiEye } from "react-icons/fi";
 import PageHeader from "../components/common/PageHeader";
+import ceoImage from "/images/about/ceo.jpg";
 
 export default function About() {
   return (
@@ -8,7 +9,7 @@ export default function About() {
       <PageHeader
       title="About Us"
       subtitle="Crafting comfort and style for modern living"
-      image="/src/assets/banner/page-header.jpg"
+   
       />
 
       {/* STORY */}
@@ -33,7 +34,7 @@ export default function About() {
 
         <div className="rounded-2xl overflow-hidden">
           <img
-            src="/src/assets/about/ceo.jpg"
+            src={ceoImage}
             alt="About us"
             className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
           />
