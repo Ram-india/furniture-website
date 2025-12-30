@@ -8,15 +8,14 @@ import Categories from '../components/home/Categories'
 import TopBar from '../components/common/TopBar'
 import FeaturedBanners from '../components/home/FeaturedBanners'
 import FeaturedProducts from '../components/common/FeatureProducts'
+import HomeAbout from '../components/common/HomeAbout'
 
 const Home = () => {
   return (
     <>
   
     <Hero/>
-    <Categories/>
-    <FeaturedBanners/>
-    <FeaturedProducts/>
+    <HomeAbout/>
     
     </>
   )
