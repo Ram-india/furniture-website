@@ -9,19 +9,20 @@ export default function FeaturedBanners() {
     {
       id: 1,
       tag: "FURNOB FEATURED PRODUCTS",
-      title: "Introducing the\nTotem Collection",
+      title: "Welcome to \nBudjet Furniture",
       image: banner14,
       bg: "bg-[#dfe6e8]",
-      link: "/collection/totem",
+      link: "/about",
     },
     {
       id: 2,
-      tag: "10% OFF ALL ITEMS",
-      title: "Furnob Featured\nProducts",
+      tag: "OUR BLOGS & NEWS",
+      title: "Crafting comfort and style \nfor modern\n livingProducts",
       image: banner15,
       bg: "bg-[#f4eee9]",
-      link: "/featured",
+      link: "/blog",
     },
+    
   ];
 
   return (

@@ -19,17 +19,17 @@ import {
             {/* LEFT INFO */}
             <div className="hidden md:flex items-center gap-6">
               <div className="flex items-center gap-2">
-                <FiPhone className="text-primary" />
+                <FiPhone className="text-secondary" />
                 <span>+91 987654321</span>
               </div>
   
               <div className="flex items-center gap-2">
-                <FiMail className="text-primary" />
+                <FiMail className="text-secondary" />
                 <span>sales@example.com</span>
               </div>
   
               <div className="flex items-center gap-2">
-                <FiClock className="text-primary" />
+                <FiClock className="text-secondary" />
                 <span>10 AM - 9 PM</span>
               </div>
             </div>

@@ -13,6 +13,8 @@ import Blogs from './pages/Blogs'
 import Gallery from './pages/Gallery'
 import Contact from './pages/Contact'
 import BlogDetails from './pages/BlogDetail'
+import ScrollToTop from './components/common/ScrollToTop'
+
 
 
 
@@ -24,6 +26,7 @@ function App() {
   <>
   <TopBar/>
   <Navbar/>
+  <ScrollToTop/>
   <Routes>
       <Route path='/' element={<Home/>}/>
       <Route path='/about' element={<About/>}/>

@@ -30,7 +30,7 @@ export function BannerCard({ item }) {
         </h3>
 
         <span className="mt-6 inline-flex items-center gap-2 text-primary font-medium">
-          Shop Collection
+          Read More
           <span className="transition-transform group-hover:translate-x-1">
             →
           </span>
