@@ -1,9 +1,33 @@
-import React from 'react'
+// src/pages/TermsPage.jsx
+import termsData from "../data/termsData";
+import TOC from "../components/common/TOC";
+import PageHeader from "../components/common/PageHeader";
 
-const Terms = () => {
+export default function TermsPage() {
   return (
-    <div>Terms</div>
-  )
-}
+    <section className="bg-white">
+      <PageHeader title="Terms & Conditions" />
 
-export default Terms
+      <div className="max-w-7xl mx-auto px-6 py-10 lg:py-14 grid grid-cols-1 lg:grid-cols-4 gap-10">
+  {/* TOC Sidebar */}
+  <div className="relative">
+    <div className="sticky top-20">
+      <TOC items={termsData.map(({ slug, title }) => ({ id: slug, title }))} />
+    </div>
+  </div>
+
+  {/* Content */}
+  <article className="lg:col-span-3 space-y-12">
+    {termsData.map((section, index) => (
+      <section key={section.id} id={section.slug}>
+        <h2 className="text-2xl font-semibold text-primary mb-4">
+          {index + 1}. {section.title}
+        </h2>
+        <p className="text-gray-700 leading-relaxed">{section.content}</p>
+      </section>
+    ))}
+  </article>
+</div>
+    </section>
+  );
+}

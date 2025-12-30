@@ -11,6 +11,9 @@
   --border: 229 231 235;
   --third: 62 81 106;
 }
+html {
+  scroll-behavior: smooth;
+}
 
 /* =====================
    BASE STYLES
