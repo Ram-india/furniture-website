@@ -14,6 +14,8 @@ import Gallery from './pages/Gallery'
 import Contact from './pages/Contact'
 import BlogDetails from './pages/BlogDetail'
 import ScrollToTop from './components/common/ScrollToTop'
+import Products from './pages/Products'
+import ProductDetails from './pages/ProductDetails'
 
 
 
@@ -30,6 +32,8 @@ function App() {
   <Routes>
       <Route path='/' element={<Home/>}/>
       <Route path='/about' element={<About/>}/>
+      <Route path='/products' element={<Products/>}/>
+      <Route path='/products/:id' element={<ProductDetails/>}/>
       <Route path='/blog' element={<Blogs/>}/>
       <Route path='/blog/:slug' element={<BlogDetails/>}/>
       <Route path='/gallery' element={<Gallery/>}/>

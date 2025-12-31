@@ -40,7 +40,10 @@ html {
   }
 
   .hover-primary:hover {
-    color: rgb(var(--primary-hover));
+    color: rgb(var(--primary));
+  }
+  .hover-secondary:hover {
+    color: rgb(var(--secondary));
   }
 
 
