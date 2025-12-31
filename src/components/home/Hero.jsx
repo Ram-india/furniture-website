@@ -4,7 +4,7 @@ import hero from"/images/hero/hero.png";
 const Hero = () => {
   return (
     <section className="cream-bg h-screen flex items-center py-5 px-10 mb-5 ">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 gap-10">
+      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2  gap-10">
         <div>
           <p className="text-secondary font-semibold mb-3">
             Only The Best Furniture

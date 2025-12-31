@@ -19,7 +19,7 @@ const Products = () => {
          {/* HERO */}
               <PageHeader
                 title="Product"
-                subtitle="Browse our exclusive range of furniture designed to elevate your living spaces. From modern to classic styles, find the perfect pieces that blend comfort and aesthetics. Explore now and transform your home with our curated collections."
+                subtitle="Browse our exclusive range of furniture."
               />
               
         <div className='max-w-7xl mx-auto px-6 py-14 grid grid-cols-1 lg:grid-cols-4 gap-8'>
