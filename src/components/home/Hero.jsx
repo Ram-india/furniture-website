@@ -9,6 +9,7 @@ const Hero = () => {
       .catch((err) => console.error(err));
   },[]);
    if (!hero) return null;
+   console.log(import.meta.env.VITE_API_BASE);
   return (
     
     <section className="cream-bg h-screen flex items-center py-5 px-10 mb-5 ">
