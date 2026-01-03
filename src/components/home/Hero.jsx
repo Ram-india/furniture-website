@@ -1,22 +1,18 @@
 import React, { useEffect, useState } from "react";
-import hero from "/images/hero/hero.png";
-const IMAGE_BASE =
-  "https://cuteweb.in/sandbox/budget/admin/uploads/slider/";
+import api from "../../api/axios"
 
 const Hero = () => {
   const [hero, setHero] = useState(null);
   useEffect(()=>{
-    fetch("https://cuteweb.in/sandbox/budget/admin/api/getHomePageSlider")
-      .then((res) => res.json())
-      .then((data) => setHero(data))
-      
+    api.get("/getHomePageSlider")
+      .then((res) =>  setHero(res.data))
       .catch((err) => console.error(err));
   },[]);
    if (!hero) return null;
   return (
     
     <section className="cream-bg h-screen flex items-center py-5 px-10 mb-5 ">
-     
+    
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2  gap-10">
         <div>
           <p className="text-secondary font-semibold mb-3">
