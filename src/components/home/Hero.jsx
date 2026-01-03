@@ -37,7 +37,7 @@ const Hero = () => {
         </div>
         <div className="  h-[220px] sm:h-[300px] md:h-[380px] lg:h-[420px]">
           <img
-            src={IMAGE_BASE + hero.image}
+            src={hero.imageURL}
             alt={hero?.title}
             className="w-full  object-cover rounded-2xl"
             loading="lazy"
