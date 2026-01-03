@@ -35,7 +35,7 @@ const Hero = () => {
             Veiw →
           </button>
         </div>
-        <div className="  h-[220px] sm:h-[300px] md:h-[380px] lg:h-[420px]">
+        <div className=" h-[220px] sm:h-[300px] md:h-[380px] lg:h-[420px]">
           <img
             src={hero.imageURL}
             alt={hero?.title}
