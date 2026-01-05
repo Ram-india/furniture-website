@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import api from "../../api/axios";
 
+
 const Hero = () => {
   const [hero, setHero] = useState(null);
 

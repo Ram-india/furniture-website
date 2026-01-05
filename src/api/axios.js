@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: `${import.meta.env.VITE_API_BASE_URL}/api` || "https://cuteweb.in/sandbox/budget/admin/api",
+  baseURL:  "https://cuteweb.in/sandbox/budget/admin/api",
   headers: {
     "Content-Type": "application/json",
   },
