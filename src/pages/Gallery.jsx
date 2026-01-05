@@ -1,20 +1,39 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import PageHeader from "../components/common/PageHeader";
 import Lightbox from "../components/common/LightBox";
-import galleryData from "../data/galleryData";
+import api from "../api/axios";
 
-
-const categories = ["All", "Living", "Bedroom", "Dining"];
 
 export default function Gallery() {
   const [active, setActive] = useState("All");
   const [selectedImage, setSelectedImage] = useState(null);
+  const [galleryData, setGalleryData] = useState([]);
+  const [categories, setCategories] = useState(["ALL"]);
+
+  useEffect(() => {
+    api.get("/getGallery")
+      .then(res => {
+        setGalleryData(res.data);
+
+        // extract unique categories
+        const uniqueCats = [
+          "All",
+          ...new Set(res.data.map(item => item.category))
+        ];
+        setCategories(uniqueCats);
+      })
+      .catch(err => console.error("Gallery API Error:", err));
+  }, []);
+
+
 
   const filtered =
     active === "All"
       ? galleryData
       : galleryData.filter(item => item.category === active);
+
+    
 
   return (
     <>
@@ -28,7 +47,7 @@ export default function Gallery() {
       <div className="flex justify-center gap-4 py-10">
         {categories.map(cat => (
           <button
-            key={cat}
+            key={cat.id}
             onClick={() => setActive(cat)}
             className={`px-5 py-2 rounded-full border transition
               ${
@@ -46,33 +65,38 @@ export default function Gallery() {
       <section className="pb-20">
         <div className="max-w-7xl mx-auto px-6 columns-1 sm:columns-2 md:columns-3 gap-6 space-y-6">
           {filtered.map(item => (
-            <motion.div
-              key={item.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4 }}
-              viewport={{ once: true }}
-              className="group relative overflow-hidden rounded-2xl cursor-pointer"
-              onClick={() => setSelectedImage(item.image)}
-            >
-              <img
-                src={item.image}
-                alt={item.title}
-                className="w-full object-cover transition-transform duration-500 group-hover:scale-110"
-              />
-
-              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-end">
-                <div className="p-5">
-                  <h3 className="text-white font-semibold">
-                    {item.title}
-                  </h3>
-                  <p className="text-white/80 text-sm">
-                    {item.category}
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+  <motion.div
+    key={item.gallery_id}
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.4 }}
+    viewport={{ once: true }}
+    className="group relative overflow-hidden rounded-2xl cursor-pointer"
+    onClick={() => setSelectedImage(item.hdImage)}
+  >
+    <img
+      src={item.hdImage}
+      alt={item.title}
+      className="w-full object-cover transition-transform duration-500 group-hover:scale-110"
+    />
+  </motion.div>
+))}{filtered.map(item => (
+  <motion.div
+    key={item.gallery_id}
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.4 }}
+    viewport={{ once: true }}
+    className="group relative overflow-hidden rounded-2xl cursor-pointer"
+    onClick={() => setSelectedImage(item.hdImage)}
+  >
+    <img
+      src={item.hdImage}
+      alt={item.title}
+      className="w-full object-cover transition-transform duration-500 group-hover:scale-110"
+    />
+  </motion.div>
+))}
         </div>
       </section>
 

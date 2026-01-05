@@ -9,7 +9,7 @@ export default function ProductDetails() {
   if (!product) {
     return (
       <div className="text-center py-20">
-        <p>Product not found</p>
+        <p>Blog not found</p>
         <Link to="/products" className="underline">
           Back to Products
         </Link>
