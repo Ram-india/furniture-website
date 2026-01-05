@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import api from "../../api/axios";
+import ProductCard from "../products/ProductCard";
 
 export default function FeaturedProducts() {
   const [products, setProducts] = useState([]);
@@ -7,7 +8,6 @@ export default function FeaturedProducts() {
   useEffect(() => {
     api.get("/getHomePageProducts")
       .then((res) => {
-        console.log("Products API:", res.data);
         setProducts(res.data);
       })
       .catch((err) =>
@@ -31,21 +31,16 @@ export default function FeaturedProducts() {
         </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-          {products.map((product) => (
-            <div
-              key={product.product_id}
-              className="border rounded-xl p-4 hover:shadow-lg transition"
-            >
-              <img
-                src={product.imageURL}
-                alt={product.title}
-                className="h-48 w-full object-cover rounded-lg"
-              />
-
-              <h3 className="mt-4 font-semibold">
-                {product.title}
-              </h3>
-            </div>
+          {products.map((product, index) => (
+            <ProductCard
+              key={`${product.product_id}-${index}`} // UNIQUE
+              product={{
+                id: product.product_id,
+                name: product.title,
+                image: product.hdImage,
+                category: product.category,
+              }}
+            />
           ))}
         </div>
       </div>
