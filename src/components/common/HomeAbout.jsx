@@ -9,18 +9,34 @@ const limitHtmlText = (html, limit = 280) => {
   return text.length > limit ? text.substring(0, limit) + "..." : text;
 };
 
-export default function HomeAbout({ title }) {
-  const [data, setData] = useState(null);
+export default function HomeAbout() {
+  const [page, setPage] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    api.post("/getPageDetails", { title })
-      .then((res) => setData(res.data))
-      .catch((err) => console.error("Page Details API Error:", err));
-  }, [title]);
+    const fetchPageDetails = async () => {
+      try {
+        const formData = new FormData();
+        formData.append("title", "About Us");
 
-  if (!data) {
-    return <p className="text-center py-10">Loading...</p>;
-  }
+        const res = await api.post("/getPageDetails", formData, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        });
+        setPage(res.data);
+      } catch (err) {
+        console.error("Page Details API Error:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPageDetails();
+  }, []);
+
+  if (loading) return <p>Loading...</p>;
+  if (!page) return <p>No data found</p>;
 
   return (
     <section className="bg-white py-24">
@@ -28,8 +44,11 @@ export default function HomeAbout({ title }) {
         {/* LEFT IMAGE */}
         <div className="relative">
           <img
-            src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7"
-            alt={data.title}
+            src={page.image
+              ? ` https://cuteweb.in/sandbox/budget/admin/uploads/pages/${page.image}`
+              : "/no-image.jpg"}
+            alt={page.title}
+            className="relative z-10 rounded-2xl"
           />
           <div className="absolute -bottom-6 -left-6 w-full h-full bg-themeSecondary rounded-2xl opacity-20"></div>
         </div>
@@ -41,15 +60,14 @@ export default function HomeAbout({ title }) {
           </span>
 
           <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-            {data.title}
+            {page.title}
           </h2>
 
-          {/* LIMITED DESCRIPTION */}
-          <p className="text-gray-600 mb-6 leading-relaxed">
-            {limitHtmlText(data.description, 300)}
+          <p className="text-gray-600 mb-6 leading-relaxed text-justify">
+            {limitHtmlText(page.description, 1500)}
           </p>
 
-          {/* STATS (optional static) */}
+          {/* STATS */}
           <div className="grid grid-cols-2 gap-6 mb-6">
             <div>
               <h3 className="text-2xl font-bold text-primary">10+</h3>
