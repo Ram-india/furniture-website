@@ -3,25 +3,20 @@ import { FiArrowRight } from "react-icons/fi";
 import { NavLink } from "react-router-dom";
 import api from "../../api/axios";
 
-
 const limitHtmlText = (html, limit = 280) => {
   if (!html) return "";
   const text = html.replace(/<[^>]*>/g, "");
-  return text.length > limit
-    ? text.substring(0, limit) + "..."
-    : text;
+  return text.length > limit ? text.substring(0, limit) + "..." : text;
 };
 
 export default function HomeAbout({ title }) {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    
-    api.post("/getPageDetails", { title })
+    api
+      .post("/getPageDetails", { title })
       .then((res) => setData(res.data))
-      .catch((err) =>
-        console.error("Page Details API Error:", err)
-      );
+      .catch((err) => console.error("Page Details API Error:", err));
   }, [title]);
 
   if (!data) {
@@ -31,13 +26,11 @@ export default function HomeAbout({ title }) {
   return (
     <section className="bg-white py-24">
       <div className="max-w-7xl mx-auto px-6 grid gap-14 md:grid-cols-2 items-center">
-
         {/* LEFT IMAGE */}
         <div className="relative">
           <img
             src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7"
-            alt="About"
-            className="relative z-10 w-full max-w-md rounded-2xl shadow-xl"
+            alt={data.title}
           />
           <div className="absolute -bottom-6 -left-6 w-full h-full bg-themeSecondary rounded-2xl opacity-20"></div>
         </div>
@@ -78,7 +71,6 @@ export default function HomeAbout({ title }) {
             <FiArrowRight className="group-hover:translate-x-1 transition" />
           </NavLink>
         </div>
-
       </div>
     </section>
   );
