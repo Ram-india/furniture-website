@@ -6,9 +6,8 @@ const Hero = () => {
   const [hero, setHero] = useState(null);
 
   useEffect(() => {
-    console.log("API BASE:", import.meta.env.VITE_API_BASE);
-    api
-      .get("/getHomePageSlider")
+   
+    api.get("/getHomePageSlider")
       .then((res) => setHero(res.data))
       .catch((err) => console.error("Hero API Error:", err));
   }, []);
