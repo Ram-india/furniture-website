@@ -13,8 +13,7 @@ export default function HomeAbout({ title }) {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    api
-      .post("/getPageDetails", { title })
+    api.post("/getPageDetails", { title })
       .then((res) => setData(res.data))
       .catch((err) => console.error("Page Details API Error:", err));
   }, [title]);
